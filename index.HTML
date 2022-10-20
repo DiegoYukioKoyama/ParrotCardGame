@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parrot Card Game</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Tela inicial do jogo -->
+    <div class="tela-inicial escondido">
+        <img src="imagens/desktop.png">
+    </div>
+
+    <div class="container-principal">
+
+        <!-- Cabecalho para desktop -->
+
+        <div class="container-cabecalho-desktop">
+            <h1>PARROT CARD GAME</h1>
+        </div>
+
+        <!-- Cabecalho para mobile -->
+
+        <div class="container-cabecalho-mobile">
+            <h1>PARROT CARD<br>GAME</h1>
+        </div>
+
+        <!-- container das cartas -->
+
+        <div class="container-cartas">
+
+            <!-- Carta -->
+
+            <div onclick="virar(this)" class="carta">
+
+                <div class="carta-front face">
+                    <img src="imagens/bobrossparrot.gif">
+                </div>
+
+                <div class="carta-back face">
+                    <img src="imagens/back.png">
+                </div>
+
+            </div>
+
+            <div onclick="virar(this)" class="carta">
+
+                <div class="carta-front face">
+                    <img src="imagens/explodyparrot.gif">
+                </div>
+
+                <div class="carta-back face">
+                    <img src="imagens/back.png">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
