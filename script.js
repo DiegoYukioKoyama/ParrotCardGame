@@ -14,6 +14,10 @@ const cartaFront = [
     "<img src='imagens/unicornparrot.gif'>",
 ]
 
+const tempo = document.querySelector("temporizador");
+
+cartaFront2 = [...cartaFront];
+
 numeroCartas();
 
 function virar(elemento){
@@ -60,7 +64,13 @@ function virar(elemento){
 
             }
             
+            contador++;
 
+        }
+
+        const final = document.querySelectorAll(".virada");
+        if(final.length == nCarta){
+            setTimeout(fimDeJogo,500);
         }
 
 }
@@ -74,7 +84,7 @@ function adicionarCarta(){
     const carta = `<div onclick="virar(this)" class="carta">
 
         <div class="carta-front face">
-            ${cartaFront[i]}
+            ${cartaFront2[i]}
         </div>
     
         <div class="carta-back face">
@@ -93,23 +103,19 @@ function numeroCartas(){
     
     if(nCarta >= 4 && nCarta <= 14 && nCarta % 2 === 0){
         
-        for(i = 0; i < nCarta/2; i++){
-            for(cont = 0; cont < 2;cont++){
-            const cartas = document.querySelector(".container-cartas")
+        while(cartaFront2.length > nCarta/2){
 
-            const carta = `<div onclick="virar(this)" class="carta">
+            cartaFront2.pop();
 
-                <div class="carta-front face">
-                    ${cartaFront[i]}
-                </div>
-    
-                <div class="carta-back face">
-                    <img src="imagens/back.png">
-                </div>
-    
-            </div>`
-    cartas.innerHTML += carta;
-            }
+        }
+
+        cartaFront2 = [...cartaFront2, ...cartaFront2];
+        cartaFront2.sort(comparador);
+
+        for(i = 0; i < nCarta; i++){
+      
+                adicionarCarta();
+
         }
 
     }
@@ -117,10 +123,13 @@ function numeroCartas(){
     else{
         numeroCartas();
     }
+}
 
-    for(cont = 0; cont <= nCarta / 2; cont++){
+function comparador() { 
+	return Math.random() - 0.5; 
+}
 
-    }
-
+function fimDeJogo(){
+    alert(`Você ganhou em ${contador} jogadas!`)
 }
 
